@@ -38,6 +38,7 @@ def main():
             s.sendto(data.encode(), addr)
 
     finally:
+
         s.close()
 
 if __name__ == "__main__":

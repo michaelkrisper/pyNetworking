@@ -28,6 +28,7 @@ def main():
             message = input("Enter a message: ")
 
     finally:
+        s.sendto(b"", server)
         s.close()
 
 
