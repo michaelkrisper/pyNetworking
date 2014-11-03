@@ -8,9 +8,7 @@ https://www.youtube.com/watch?v=XiVVYfgDolU#t=646
 __author__ = "Michael Krisper"
 __email__ = "michael.krisper@gmail.com"
 
-
 import socket
-
 
 def main():
     host = "127.0.0.1"
@@ -20,13 +18,14 @@ def main():
     s.connect((host, port))
 
     message = input("Enter a message: ")
-    while message:
-        s.send(message)
-        data = s.recv(1024)
-        print("Received from server: {}".format(data))
-        message = input("Enter a message: ")
-
-    s.close()
+    try:
+        while message:
+            s.send(message.encode())
+            data = s.recv(1024).decode()
+            print("Received from server: {}".format(data))
+            message = input("Enter a message: ")
+    finally:
+        s.close()
 
 
 if __name__ == "__main__":
