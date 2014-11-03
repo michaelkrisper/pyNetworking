@@ -27,7 +27,7 @@ def main():
             if not data:
                 break
 
-            data = data.encode()
+            data = data.decode()
             print("Message from {}".format(addr))
             print("from connected user: {}".format(data))
 
@@ -35,7 +35,7 @@ def main():
 
             print("Sending: {}".format(data))
 
-            s.sendto(data, addr)
+            s.sendto(data.encode(), addr)
 
     finally:
         s.close()
