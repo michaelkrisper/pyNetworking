@@ -2,15 +2,13 @@
 # coding=utf-8
 """
 TcpServer
-https://docs.python.org/3.4/library/queue.html#module-queue
+https://www.youtube.com/watch?v=XiVVYfgDolU
 """
 
 __author__ = "Michael Krisper"
 __email__ = "michael.krisper@gmail.com"
 
-
 import socket
-
 
 
 def main():
@@ -35,6 +33,7 @@ def main():
         print("sending: {}".format(data))
         conn.send(data)
     conn.close()
+
 
 if __name__ == "__main__":
     main()

@@ -2,15 +2,31 @@
 # coding=utf-8
 """
 TcpClient
-
+https://www.youtube.com/watch?v=XiVVYfgDolU#t=646
 """
 
 __author__ = "Michael Krisper"
 __email__ = "michael.krisper@gmail.com"
 
 
+import socket
+
+
 def main():
-    pass
+    host = "127.0.0.1"
+    port = 5000
+
+    s = socket.socket()
+    s.connect((host, port))
+
+    message = input("Enter a message: ")
+    while message:
+        s.send(message)
+        data = s.recv(1024)
+        print("Received from server: {}".format(data))
+        message = input("Enter a message: ")
+
+    s.close()
 
 
 if __name__ == "__main__":
